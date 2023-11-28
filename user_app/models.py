@@ -1,7 +1,5 @@
 from django.db import models
 from datetime import date
-from tareas_app.models import Users
-
 class Users(models.Model):
     ROLES_USER=[
         ("client","Cliente"),
@@ -9,14 +7,17 @@ class Users(models.Model):
         ("editor", "Editor"),
     ]
 
+    id_user= models.AutoField(primary_key=True)
     first_name= models.CharField(max_length=80, null= False, blank= False)
     last_name= models.CharField(max_length=80, null= False, blank= False)
     date_birthday= models.DateField(null=False, blank= False)
-    id_user= models.IntegerField(unique=True, null= False, blank= False)
     rol_user= models.CharField(max_length=20, choices=ROLES_USER, null= False, blank= False)
     email= models.EmailField(unique= True, null=False, blank= False)
     password= models.CharField(max_length=120, null=False, blank= False)
-    assigned_user= models.ManyToManyField("Task", related_name="assigned_user", blank= True)
+    
+    assigned_user = models.ManyToManyField("tareas_app.Tasks", related_name="users_assigned_tasks", blank=True)
+    assigned_comment = models.ForeignKey("comments_task.Comments", on_delete=models.CASCADE)
+
 
     def calcular_edad(self):
         today= date.today()
