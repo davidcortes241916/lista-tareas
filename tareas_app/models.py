@@ -19,8 +19,8 @@ class Tasks (models.Model):
     description= models.TextField(null=False, blank=False)
     value= models.CharField(max_length=20, choices=ROLES_VALUE, null= False, blank= False)
     state= models.CharField(max_length=20, choices=ROLES_STATE, null= False, blank= False)
-    evidence_documents= models.FileField(upload_to= "documents/")
-    start_date= models.DateField(null=True, blank=True)
+    evidence_documents= models.FileField(upload_to= "documents/", null= True, blank= True)
+    start_date= models.DateField(null=False, blank=False)
     last_modification= models.DateTimeField(auto_now=True)
     ending_date=  models.DateField(null=True, blank=True)
 
