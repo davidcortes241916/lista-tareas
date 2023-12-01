@@ -1,0 +1,31 @@
+*{
+    background-color: rgb(105, 26, 26);
+    margin: 0;
+}
+
+footer, a{
+    color: rgb(224, 224, 224);
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(172, 172, 172);
+}
+
+.footer-container{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform:  translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.footer{
+    width: 35%;
+    font-family: Noto Sans, sans-serif;
+}
