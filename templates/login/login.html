@@ -1,0 +1,36 @@
+{% extends "plantillas/loginP.html" %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/plantillas/loginP.css">
+{% endblock %}
+
+{% block title %}Sign On{% endblock %}
+
+{% block containerSignOn %}
+    <div class="container-login">
+        <form action="" method="post">
+            {% csrf_token %}
+            <label>Nombre: </label>
+            <input type="text" placeholder="Nombre" name="name" id="name"><br>
+            <label>Apellido: </label>
+            <input type="text" placeholder="Apellido" name="last_name" id="last_name"><br>
+            <label>Fecha de nacimiento: </label>
+            <input type="date" name="date_birthday" id="date_birthday"><br>
+            <label>Rol a ocupar: </label>
+            <select name="rol" id="rol">
+                <option value="client">Cliente</option>
+                <option value="admin">Administracion</option>
+                <option value="editor">Editor</option>
+            </select><br>
+            <label>Email: </label>
+            <input type="email" name="email" id="email" placeholder="Correo Electronico"><br>
+            <label>Contraseña: </label>
+            <input type="password" name="password" id="password" placeholder="Contraseña"><br>
+
+            <div class="centrarBotones">
+                <input type="submit" value="Registrar">
+                <input type="submit" value="Cancelar">
+            </div>
+        </form>
+    </div>
+{% endblock %}

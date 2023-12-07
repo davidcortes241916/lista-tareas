@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    padding-right: 10%;
+
+}
+
+.container-login{
+    background-color: white;
+    padding: 40%;
+    box-shadow: 0 20px 8px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    max-width: 600px;
+}
+
+.centrarBotones{
+    text-align: center;
+}
+
+form, label, input, select, .centrarBotones{
+    background: transparent;
+}
