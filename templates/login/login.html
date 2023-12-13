@@ -8,28 +8,41 @@
 
 {% block containerSignOn %}
     <div class="container-login">
+        <h1>REGISTRAR</h1>  
         <form action="" method="post">
             {% csrf_token %}
-            <label>Nombre: </label>
-            <input type="text" placeholder="Nombre" name="name" id="name"><br>
-            <label>Apellido: </label>
-            <input type="text" placeholder="Apellido" name="last_name" id="last_name"><br>
-            <label>Fecha de nacimiento: </label>
-            <input type="date" name="date_birthday" id="date_birthday"><br>
-            <label>Rol a ocupar: </label>
-            <select name="rol" id="rol">
-                <option value="client">Cliente</option>
-                <option value="admin">Administracion</option>
-                <option value="editor">Editor</option>
-            </select><br>
-            <label>Email: </label>
-            <input type="email" name="email" id="email" placeholder="Correo Electronico"><br>
-            <label>Contraseña: </label>
-            <input type="password" name="password" id="password" placeholder="Contraseña"><br>
+            <div class="inputGroup">
+                <label>Nombre: </label><br>
+                <input type="text" placeholder="Nombre" name="name" id="name"><br>
+            </div>
+            <div class="inputGroup">
+                <label>Apellido: </label><br>
+                <input type="text" placeholder="Apellido" name="last_name" id="last_name"><br>
+            </div>
+            <div class="inputGroup">
+                <label>Fecha de nacimiento: </label><br>
+                <input type="date" name="date_birthday" id="date_birthday" class="inputDate"><br>
+            </div>
+            <div class="inputGroup">
+                <label>Rol a ocupar: </label><br>
+                <select name="rol" id="rol">
+                    <option value="client">Cliente</option>
+                    <option value="admin">Administracion</option>
+                    <option value="editor">Editor</option>
+                </select><br>
+            </div>
+            <div class="inputGroup">
+                <label>Email: </label><br>
+                <input type="email" name="email" id="email" placeholder="Correo Electronico"><br>
+            </div>
+            <div class="inputGroup">
+                <label>Contraseña: </label><br>
+                <input type="password" name="password1" id="password1" placeholder="Contraseña"><br>
+            </div>
 
             <div class="centrarBotones">
-                <input type="submit" value="Registrar">
-                <input type="submit" value="Cancelar">
+                <button type="submit" name="signOn" id="signOn">Registrar</button>
+                <button type="submit" name="cancelar" id="cancelar">Cancelar</button>
             </div>
         </form>
     </div>
