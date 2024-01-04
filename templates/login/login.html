@@ -9,7 +9,7 @@
 {% block containerSignOn %}
     <div class="container-login">
         <h1>REGISTRAR</h1>  
-        <form action="" method="post">
+        <form action="{% url 'signOn' %}" method="post">
             {% csrf_token %}
             <div class="inputGroup">
                 <label>Nombre: </label><br>

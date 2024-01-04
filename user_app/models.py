@@ -15,8 +15,8 @@ class Users(models.Model):
     email= models.EmailField(unique= True, null=False, blank= False)
     password= models.CharField(max_length=120, null=False, blank= False)
     
-    assigned_user = models.ManyToManyField("tareas_app.Tasks", related_name="users_assigned_tasks", blank=True)
-    assigned_comment = models.ForeignKey("comments_task.Comments", on_delete=models.CASCADE)
+    assigned_user = models.ManyToManyField("tareas_app.Tasks", related_name="users_assigned_tasks", blank=True, null=True)
+    assigned_comment = models.ForeignKey("comments_task.Comments", on_delete=models.CASCADE, blank=True, null= True)
 
 
     def calcular_edad(self):

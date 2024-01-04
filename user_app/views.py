@@ -11,20 +11,21 @@ def loginSignOn(request):
        return render(request, "./login/login.html", {})
     else:
         try:
+            print("Intentando crear un nuevo usuario...")
             new_user= Users.objects.create(
-                name= request.POST["first_name"],
+                first_name= request.POST["name"],
                 last_name= request.POST["last_name"],
-                birthday= request.POST["date_birthday"],
-                rol= request.POST["rol_user"],
+                date_birthday= request.POST["date_birthday"],
+                rol_user= request.POST["rol"],
                 email= request.POST["email"],
-                password= request.POST["password"],
+                password= request.POST["password1"],
             )
-            return render(render, "")
+            print("usuario creado exitosamente")
+            return redirect("signOn")
             #tambien le falta una url al que enviarse  
         
         except Exception as e:
+            print(f"error al registrar: {e}")
             error_message= f"Error al registrar usuario: {e}"
             return render(request, "./login/login.html", {'error_message': error_message})
             #el mensaje de error debe ir en el html de register  
-
-    return render(request, "") 
