@@ -28,11 +28,11 @@ body{
     text-align: center;
 }
 
-form, label, input, select, option, .centrarBotones{
+form, label, input, select, p, option, .centrarBotones{
     background: transparent;
 }
 
-label{
+label, p{
     font-size: 12px;
     color: rgb(105, 26, 26);
     position: absolute;

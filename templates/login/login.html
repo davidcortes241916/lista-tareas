@@ -11,6 +11,11 @@
         <h1>REGISTRAR</h1>  
         <form action="{% url 'signOn' %}" method="post">
             {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
             <div class="inputGroup">
                 <label>Nombre: </label><br>
                 <input type="text" placeholder="Nombre" name="name" id="name"><br>
@@ -35,6 +40,7 @@
                 <label>Email: </label><br>
                 <input type="email" name="email" id="email" placeholder="Correo Electronico"><br>
             </div>
+
             <div class="inputGroup">
                 <label>Contraseña: </label><br>
                 <input type="password" name="password1" id="password1" placeholder="Contraseña"><br>
