@@ -16,6 +16,11 @@ body{
     margin-bottom: 10px;
 }
 
+.messages, li{
+    background: transparent;
+    list-style: none;
+}
+
 .container-login{
     background-color: white;
     padding: 10% 40% 10% 40%;
@@ -28,7 +33,7 @@ body{
     text-align: center;
 }
 
-form, label, input, select, p, option, .centrarBotones{
+form, label, input, select, option, .designR, .centrarBotones{
     background: transparent;
 }
 
@@ -39,6 +44,20 @@ label, p{
     top: 0;
     display: block;
     transition: 0.2s;
+}
+
+.designR{
+    font-size: 12px;
+    color: rgb(105, 26, 26);
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+}
+
+.designR:hover{
+    cursor: pointer;
+    color: rgb(150, 26, 26);
 }
 
 input, select, option{
@@ -85,7 +104,8 @@ button{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h1{

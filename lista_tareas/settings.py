@@ -28,6 +28,26 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMIN_SITES = {
+    "admin": {
+        "login_url": "/admin/login/",
+        "logout_url": "/admin/logout/",
+        "permission_classes": [
+            "django.contrib.auth.models.Permission",
+        ]
+    }
+}
+
+ADMIN_SITES = {
+    "admin": {
+        "login_url": "/admin/login/",
+        "logout_url": "/admin/logout/",
+        "permission_classes": [
+            "django.contrib.auth.models.Permission",
+            "my_custom_permission_class"
+        ]
+    }
+}
 
 # Application definition
 
@@ -103,6 +123,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+AUTH_USER_MODEL = 'user_app.Users'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -119,7 +145,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS= [
     BASE_DIR / "static",

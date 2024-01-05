@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/static/css/plantillas/loginP.css">
 {% endblock %}
 
-{% block title %}Sign On{% endblock %}
+{% block title %}Registrar{% endblock %}
 
 {% block containerSignOn %}
     <div class="container-login">
@@ -12,9 +12,11 @@
         <form action="{% url 'signOn' %}" method="post">
             {% csrf_token %}
             {% if messages %}
+            <ul class="messages">
                 {% for message in messages %}
-                <p>{{ message }}</p>
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                 {% endfor %}
+            </ul>
             {% endif %}
             <br>
             <div class="inputGroup">
@@ -49,7 +51,7 @@
 
             <div class="centrarBotones">
                 <button type="submit" name="signOn" id="signOn">Registrar</button>
-                <button name="cancelar" id="cancelar">Cancelar</button>
+                <button name="cancelar" id="cancelar" href="{% url 'signIn' %}">Cancelar</button>
             </div>
         </form>
     </div>

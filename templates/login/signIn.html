@@ -1,1 +1,40 @@
-<h1>aqui ira el login login xd</h1>
+{% extends "plantillas/loginP.html" %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/plantillas/loginP.css">
+{% endblock %}
+
+{% block title %}Iniciar Sesion{% endblock %}
+
+{% block containerSignOn %}
+    <div class="container-login">
+        <h1>INICIAR SESION</h1>  
+        <form action="{% url 'signIn' %}" method="post">
+            {% csrf_token %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <div class="inputGroup">
+                <label>Email: </label><br>
+                <input type="email" name="email" id="email" placeholder="Correo Electronico"><br>
+            </div>
+
+            <div class="inputGroup">
+                <label>Contraseña: </label><br>
+                <input type="password" name="password1" id="password1" placeholder="Contraseña"><br>
+            </div>
+
+            <div class="inputGroup">
+                <a href="{% url 'signOn' %}" class="designR">¿No tienes cuenta aun? Registrate gratis!</a>
+                <br>
+            </div>
+            <div class="centrarBotones">
+                <button type="submit" name="signIn" id="signIn">Iniciar Sesion</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
