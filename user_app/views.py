@@ -57,6 +57,7 @@ def loginSignOn(request):
             return render(request, "./login/login.html", {'error_message': error_message})    
 
 def loginSignIn(request):
+
     if request.method != "POST":
         return render(request, "./login/signIn.html", {})
     else:
@@ -77,3 +78,4 @@ def loginSignIn(request):
             print("Error de validación:", e)
             messages.error(request, "Correo o contraseña incorrectos!")
             return render(request, "./login/signIn.html", {})
+    
