@@ -3,19 +3,28 @@ from django.db import models
 from datetime import date
 
 class CustomUserManager(BaseUserManager):
+    #Esta clase define un administrador de usuarios personalizado para una aplicación 
+    #Django, heredando características de la BaseUserManagerclase base. Su finalidad es 
+    #gestionar la creación de instancias de usuario de forma personalizada.
     def create_user(self, email, password=None, **extra_fields):
+        #Comprueba si hay una dirección de correo electrónico obligatoria
+        #Crea una nueva cuenta de superusuario, que tiene privilegios administrativos.
         if not email:
             raise ValueError("El campo de correo electrónico es obligatorio.")
+            #hace que sea obligatorio email
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
-        user.save(using=self._db)
+        user.save(using=self._db) #guarda los primeros datos
         return user
 
     def create_superuser(self, email, password=None, **extra_fields):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         return self.create_user(email, password, **extra_fields)
+    
+    #va de primero este metodo debido a que debe siempre estar validando el email y password
+    #para mas seguridad y encriptar la contraseña
 
 class Users(AbstractBaseUser, PermissionsMixin):
     ROLES_USER = [
