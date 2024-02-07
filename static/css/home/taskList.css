@@ -1,0 +1,12 @@
+.divButton{
+    padding-top: 10%;
+    margin-left: 40%;
+}
+
+.buttonC{
+    color: rgb(196, 196, 196);
+}
+
+.buttonC:hover{
+    cursor: pointer;
+}

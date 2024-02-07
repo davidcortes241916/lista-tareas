@@ -12,6 +12,9 @@ from django.urls import reverse
 def home(request):
     return render(request, "./home/home.html", {})
 
+def loginB(request):
+    return render(request, "./login/signIn.html", {})
+
 def loginSignOn(request):
     if request.method != "POST":
        return render(request, "./login/login.html", {})
@@ -79,3 +82,6 @@ def loginSignIn(request):
             messages.error(request, "Correo o contraseña incorrectos!")
             return render(request, "./login/signIn.html", {})
     
+def signout(request): #se arreglo cambiando el nombre del metodo
+    logout(request)
+    return redirect("signIn")

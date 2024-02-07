@@ -3,27 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/home/navbar.css">
     {% block styleH %}{% endblock %}
     <title>{% block titlesH %}{% endblock %}</title>
 </head>
 <body>
-    <div>
-        <nav>
-            <a href="#">Tareas</a>
+    <div class="navbar">
+        <ul class="navbarP">
+            <li><a href="#" class="navbarA">Tareas</a>
+            </li>
             {% if request.user.is_authenticated %}
-                <a href="#">Perfil</a>
-                <a href="#">Salir</a>
-                <a href="#">Mis tareas</a>
+                <li><a href="#" class="navbarA">Perfil</a>
+                </li>
+                <li><a href="#" class="navbarA">Mis tareas</a></li>
+                <li><a href="{% url 'logout' %}" class="navbarA">Salir</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}" class="navbarLo">Iniciar Sesion</a></li>
             {% endif %}
-        </nav>
+        </ul>
     </div>
-    <h1>bienvenido {% if request.user.is_authenticated %}{{ request.user.first_name }}{% else %}invitado{% endif %}</h1>
 
-    {% block containerHome%}{% endblock %}
+    <div class="content">
+        <h1>bienvenido {% if request.user.is_authenticated %}{{ request.user.first_name }}{% else %}invitado{% endif %}</h1>
+        {% block containerTask%}{% endblock %}
+    </div>
 
-    <div>
-        <footer class="footer">&copy; Creado por David Cortes. Todos los derechos reservados</footer>
-        <footer>Ver portafolio David Cortes</footer>
+    {% if request.user.is_authenticated %}
+        {% block buttons %}{% endblock %}
+    {% endif %}
+
+    <div class="footerH">
+        <footer>&copy; Creado por David Cortes. Todos los derechos reservados</footer>
+        <footer> <a href="#">Ver portafolio David Cortes</a></footer>
     </div>
 </body>
 </html>
