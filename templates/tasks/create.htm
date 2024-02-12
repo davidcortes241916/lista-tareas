@@ -6,6 +6,31 @@
     <title>create</title>
 </head>
 <body>
-    
+    <form action="">
+        {% csrf_token %}
+        <h2>Crear tarea</h2>
+        <p><b>TENER EN CUENTA </b>las tareas creadas son una descripcion de lo que desea, por lo que debe ser especifico en cuanto a: caracteristicas, diseño, atributos, etc, Que desea lograr en la tarea</p>
+
+        <label>Prioridad de la tarea:</label>
+        <select name="" id="">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select><br>
+
+        <label>Titulo:</label>
+        <input type="text"><br>
+
+        <label>Descripcion de la tarea:</label>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+        <label>Adjuntar diseño: </label>
+        <input type="button">
+
+        <div class="buttonTask">
+            <button type="submit" name="create" id="create">Crear tarea</button>
+            <button name="cancelar" id="cancelar">Cancelar</button>
+        </div>
+    </form>
 </body>
 </html>
